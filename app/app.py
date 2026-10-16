@@ -91,17 +91,31 @@ with tab1:
     modelnames=['logistic_model.pkl','svm_model.pkl']
 
     
+
+from pathlib import Path
+import pickle
+
+BASE_DIR = Path(__file__).resolve().parent
+
 def predict_death_event(data):
     predictions = []
 
     for modelname in modelnames:
-        with open(modelname, "rb") as file:
+        model_path = BASE_DIR / modelname
+
+        if not model_path.exists():
+            raise FileNotFoundError(
+                f"Model file not found: {model_path}"
+            )
+
+        with open(model_path, "rb") as file:
             model = pickle.load(file)
 
         prediction = model.predict(data)
         predictions.append(prediction[0])
 
     return predictions
+
 
 
 if st.button("Submit"):
