@@ -1,0 +1,20 @@
+# Secrets — NEVER upload these
+.env
+
+# Virtual environments
+.venv/
+node_modules/
+
+# SSL certificates (contain private keys)
+certs/
+
+# Local database (contains personal email data)
+gantt.db
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db

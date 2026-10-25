@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>GANTT AI ASSISTANT</title>
+
+  <link rel="stylesheet" href="taskpane.css">
+
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script src="taskpane.js" defer></script>
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="logo">G</div>
+
+    <div>
+      <h1>GANTT AI ASSISTANT</h1>
+      <p>Project schedule assistant</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Email summary -->
+    <section class="card">
+      <h2>1. Email Summary</h2>
+
+      <p id="email-subject" class="subject">
+        No email selected
+      </p>
+
+      <p id="email-sender" class="muted"></p>
+
+      <div id="email-summary" class="summary">
+        Open an email in Outlook to begin.
+      </div>
+
+      <button id="analyze-btn" class="primary">
+        Analyze this email
+      </button>
+
+      <button id="dashboard-btn" class="primary" style="margin-top:8px;background:#1a7340;">
+        📊 Open Dashboard
+      </button>
+
+      <p id="status" role="status" aria-live="polite">
+        Waiting for an email.
+      </p>
+    </section>
+
+    <!-- Section 2: AI-proposed events -->
+    <section class="card">
+      <h2>2. Proposed Events</h2>
+
+      <p class="muted">
+        Each row represents an event identified by the AI.
+        Review the event details, correct any errors, and check
+        warnings before accepting or rejecting a proposal.
+      </p>
+
+      <div id="event-count" class="event-count">
+        0 events found
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Warning</th>
+              <th>Event Type</th>
+              <th>Event / Task</th>
+              <th>Start Date</th>
+              <th>Start Time</th>
+              <th>End Date</th>
+              <th>End Time</th>
+              <th>Hours</th>
+              <th>Project Name</th>
+              <th>Resources</th>
+              <th>Location</th>
+              <th>Decision</th>
+            </tr>
+          </thead>
+
+          <tbody id="events-body">
+            <tr>
+              <td colspan="12" class="empty">
+                Analyze an email to identify proposed events.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted">
+        Accept and Reject currently update the status in this
+        interface only. Saving decisions to a database or
+        calendar will be implemented in a later step.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
